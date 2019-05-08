@@ -1,0 +1,42 @@
+{
+	"name": "dank-neon",
+	"displayName": "Dank Neon",
+	"description": "A danker, more neon theme for VS Code",
+	"version": "1.4.0",
+	"publisher": "wuz",
+	"engines": {
+		"vscode": "^1.30.0"
+	},
+	"categories": [
+		"Themes"
+	],
+	"galleryBanner": {
+		"color": "#2a2d46",
+		"theme": "dark"
+	},
+	"icon": "assets/icon.png",
+	"contributes": {
+		"themes": [
+			{
+				"label": "Dank Neon",
+				"uiTheme": "vs-dark",
+				"path": "./themes/Dank Neon-color-theme.json"
+			},
+			{
+				"label": "Dank Neon Light",
+				"uiTheme": "vs",
+				"path": "./themes/Dank Neon-color-theme-light.json"
+			}
+		]
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/DankNeon/vscode.git"
+	},
+	"homepage": "https://dankneon.com/vscode",
+	"__metadata": {
+		"id": "1fb09d92-b962-43c7-bfb6-0814e543352d",
+		"publisherId": "de124b8d-a14d-40dc-ab7f-9b6b67ced032",
+		"publisherDisplayName": "wuz"
+	}
+}

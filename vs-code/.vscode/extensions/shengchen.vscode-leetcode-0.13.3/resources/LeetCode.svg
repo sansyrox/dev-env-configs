@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>LeetCode_36</title>
+    <desc>Created with Sketch.</desc>
+    <g id="LeetCode_36" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2" transform="translate(3.000000, 1.000000)">
+            <rect id="Rectangle" fill="#B4B2B1" x="14.2222222" y="17.4222222" width="15.5555556" height="3.73333333"></rect>
+            <g id="Group-7" transform="translate(17.310596, 17.025282) rotate(45.000000) translate(-17.310596, -17.025282) translate(7.310596, 3.025282)">
+                <polygon id="Rectangle" fill="#000000" points="0 -2.84217094e-14 3.73333333 3.73333333 3.73333333 27.0666667 0 27.0666667"></polygon>
+                <path d="M14.739248,7.62222222 L11.0059147,11.3555556 L3.73333333,11.3555556 L3.73333333,7.62222222 L14.739248,7.62222222 Z M19.9111111,12.1298653 L19.9111111,27.0666667 L16.1777778,27.0666667 L16.1777778,15.8631986 L19.9111111,12.1298653 Z" id="Combined-Shape" fill="#EDA433"></path>
+                <rect id="Rectangle" fill="#000000" x="3.73333333" y="23.3333333" width="12.4444444" height="3.73333333"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

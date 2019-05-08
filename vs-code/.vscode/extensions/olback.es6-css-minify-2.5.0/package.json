@@ -1,0 +1,192 @@
+{
+	"name": "es6-css-minify",
+	"displayName": "JS & CSS Minifier",
+	"description": "Easily Minify ES5/ES6/ES7/ES8 and CSS",
+	"version": "2.5.0",
+	"publisher": "olback",
+	"icon": "icon.png",
+	"galleryBanner": {
+		"color": "#333",
+		"theme": "dark"
+	},
+	"license": "SEE LICENSE IN LICENSE.md",
+	"homepage": "https://github.com/olback/es6-css-minify",
+	"bugs": "https://github.com/olback/es6-css-minify/issues",
+	"qna": "https://github.com/olback/es6-css-minify/issues",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/olback/es6-css-minify.git"
+	},
+	"author": {
+		"name": "olback",
+		"email": "es6-css-minify@olback.net"
+	},
+	"keywords": [
+		"ECMA Script",
+		"CSS",
+		"js",
+		"javascript",
+		"minify"
+	],
+	"categories": [
+		"Other"
+	],
+	"engines": {
+		"vscode": "^1.18.0"
+	},
+	"activationEvents": [
+		"onCommand:es6-css-minify.loadConfig",
+		"onCommand:es6-css-minify.minify",
+		"onCommand:es6-css-minify.minifySelection",
+		"onLanguage:css",
+		"onLanguage:javascript",
+		"onLanguage:json",
+		"workspaceContains:**/*.css",
+		"workspaceContains:**/*.js",
+		"workspaceContains:**/*.json"
+	],
+	"main": "./out/extension",
+	"contributes": {
+		"commands": [
+			{
+				"command": "es6-css-minify.loadConfig",
+				"title": "Minify: Reload config"
+			},
+			{
+				"command": "es6-css-minify.minify",
+				"title": "Minify document"
+			},
+			{
+				"command": "es6-css-minify.minifySelection",
+				"title": "Minify selection"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "JS & CSS Minifier",
+			"properties": {
+				"es6-css-minify.minifyOnSave": {
+					"type": "string",
+					"description": "Automatically minify file when saving. Set to \"yes\" to always minify, \"no\" to never minify, \"exists\" to only minify if a minified version already exists.",
+					"default": "no",
+					"enum": [
+						"yes",
+						"no",
+						"exists"
+					]
+				},
+				"es6-css-minify.hideButton": {
+					"type": "boolean",
+					"description": "Hide the 'Minify' button in the status bar if it's a file you can't minify.",
+					"default": false
+				},
+				"es6-css-minify.uglifyConfigFile": {
+					"type": "string",
+					"description": "If this file exists, overwrite uglify-es settings with the ones specified in this file. For more info visit https://www.npmjs.com/package/uglify-es#minify-options-structure.",
+					"default": ".uglifyrc"
+				},
+				"es6-css-minify.genJSmap": {
+					"type": "boolean",
+					"description": "Generate JavaScript sourcemap files.",
+					"default": false
+				},
+				"es6-css-minify.jsMapSource": {
+					"type": "string",
+					"description": "Prefix for sources in map files.",
+					"default": ""
+				},
+				"es6-css-minify.jsMinPath": {
+					"type": "string",
+					"description": "Where to save the minified file.\nDefault: '' - saves in the same directory.\n'/' - Save in workspace root.",
+					"default": ""
+				},
+				"es6-css-minify.jsPostfix": {
+					"type": "string",
+					"description": "Filename postfix",
+					"default": "min"
+				},
+				"es6-css-minify.js": {
+					"type": "object",
+					"description": "Uglify-es settings. For more info visit https://www.npmjs.com/package/uglify-es#parse-options.",
+					"default": {
+						"mangle": false,
+						"compress": {
+							"unused": false
+						},
+						"output": {
+							"quote_style": 0
+						}
+					}
+				},
+				"es6-css-minify.cleancssConfigFile": {
+					"type": "string",
+					"description": "If this file exists, overwrite clean-css settings with the ones specified in this file. For more info visit https://www.npmjs.com/package/clean-css.",
+					"default": ".cleancssrc"
+				},
+				"es6-css-minify.genCSSmap": {
+					"type": "boolean",
+					"description": "Generate CSS sourcemap files.",
+					"default": false
+				},
+				"es6-css-minify.cssMapSource": {
+					"type": "string",
+					"description": "Prefix for sources in map files.",
+					"default": ""
+				},
+				"es6-css-minify.cssMinPath": {
+					"type": "string",
+					"description": "Where to save the minified file.\nDefault: '' - saves in the same directory.\n'/' - Save in workspace root.",
+					"default": ""
+				},
+				"es6-css-minify.cssPostfix": {
+					"type": "string",
+					"description": "Filename postfix",
+					"default": "min"
+				},
+				"es6-css-minify.css": {
+					"type": "object",
+					"description": "Clean-CSS settings. For more info visit https://www.npmjs.com/package/clean-css.",
+					"default": {
+						"rebase": false
+					}
+				},
+				"es6-css-minify.enableAutoprefixer": {
+					"type": "boolean",
+					"description": "Enable autoprefixer?",
+					"default": false
+				},
+				"es6-css-minify.autoprefixer": {
+					"type": "object",
+					"description": "Autoprefixer options object. For more info visit https://github.com/postcss/autoprefixer#options",
+					"default": {}
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && cross-env CODE_TESTS_WORKSPACE=src/test/workspace node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"@types/clean-css": "^3.4.30",
+		"@types/mocha": "^2.2.42",
+		"@types/node": "^7.0.43",
+		"cross-env": "^5.2.0",
+		"tslint": "^5.8.0",
+		"typescript": "^2.6.1",
+		"vscode": "^1.1.18"
+	},
+	"dependencies": {
+		"autoprefixer": "^9.5.0",
+		"clean-css": "^4.1.11",
+		"terser": "^3.10.0"
+	},
+	"__metadata": {
+		"id": "f92f3867-b874-416b-82b5-f806f729b518",
+		"publisherId": "a71ff936-91f1-417e-a760-a03bf2dab019",
+		"publisherDisplayName": "olback"
+	}
+}
